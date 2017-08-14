@@ -1,0 +1,21 @@
+app.py:4: ExtDeprecationWarning: Importing flask.ext.restful is deprecated, use flask_restful instead.
+  from flask.ext.restful import Api
+app.py:32: ExtDeprecationWarning: Importing flask.ext.restful.reqparse is deprecated, use flask_restful.reqparse instead.
+  from flask.ext.restful import reqparse
+app.py:35: ExtDeprecationWarning: Importing flask.ext.restful.fields is deprecated, use flask_restful.fields instead.
+  from flask.ext.restful import fields
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+app.py:4: ExtDeprecationWarning: Importing flask.ext.restful is deprecated, use flask_restful instead.
+  from flask.ext.restful import Api
+app.py:32: ExtDeprecationWarning: Importing flask.ext.restful.reqparse is deprecated, use flask_restful.reqparse instead.
+  from flask.ext.restful import reqparse
+app.py:35: ExtDeprecationWarning: Importing flask.ext.restful.fields is deprecated, use flask_restful.fields instead.
+  from flask.ext.restful import fields
+ * Debugger is active!
+ * Debugger PIN: 236-035-556
+127.0.0.1 - - [14/Aug/2017 00:53:17] "GET /todos HTTP/1.1" 200 -
+127.0.0.1 - - [14/Aug/2017 00:53:20] "GET /todos HTTP/1.1" 200 -
+127.0.0.1 - - [14/Aug/2017 00:54:11] "POST /todos HTTP/1.1" 201 -
+127.0.0.1 - - [14/Aug/2017 00:54:27] "GET /todos HTTP/1.1" 200 -
+127.0.0.1 - - [14/Aug/2017 00:55:10] "GET /todos HTTP/1.1" 200 -
