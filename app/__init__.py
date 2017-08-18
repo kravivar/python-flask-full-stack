@@ -1,10 +1,17 @@
-from flask import Flask
-from flask_restplus import Resource, Api
+from flask import Flask, jsonify, abort, request
+from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Api, Resource
 
-app = Flask(__name__)                  #  Create a Flask WSGI appliction
-api = Api(app)                         #  Create a Flask-RESTPlus API
+app = Flask(__name__)
+app.config.from_object('config')
+db = SQLAlchemy(app)
 
-@api.route('/hello')                   #  Create a URL route to this resource
-class HelloWorld(Resource):            #  Create a RESTful resource
-    def get(self):                     #  Create GET endpoint
-        return {'hello': 'world'}
+# Route Definitions
+# Import a module / component using its blueprint handler variable (mod_auth)
+from app.developer.controller import app_developer
+
+# Register blueprint(s)
+app.register_blueprint(app_developer)
+
+# Create corresponding tables
+db.create_all()
