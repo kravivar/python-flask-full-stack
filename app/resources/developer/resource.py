@@ -4,7 +4,7 @@ from flask_restful import Resource, abort, reqparse
 from app import db
 
 # Import model
-from app.developer.model import Developer, DeveloperSchema
+from app.resources.developer.model import Developer, DeveloperSchema
 
 class DeveloperApi(Resource):
 	"""

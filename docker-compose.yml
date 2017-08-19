@@ -1,10 +1,11 @@
 version: '2'
 services:
   mysql:
-    image: mysql
+    image: mysql/mysql-server
     environment:
      - MYSQL_ROOT_PASSWORD=password
      - MYSQL_DATABASE=flask
+     - MYSQL_ROOT_HOST=%
     ports:
       - "3306:3306"
     volumes:

@@ -3,7 +3,7 @@ from flask import Blueprint
 from flask_restful import Api
 
 # Importing resources
-from app.developer.resource import DeveloperApi
+from app.resources.developer.resource import DeveloperApi
 
 # Defining home blueprint
 app_developer = Blueprint('developer', __name__, url_prefix='/api/dev')

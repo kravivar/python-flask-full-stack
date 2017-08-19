@@ -9,10 +9,10 @@ db = SQLAlchemy(app)
 
 # Auto generate Route Definitions
 # Import a module / component using its blueprint handler variable (mod_auth)
-dl = next(os.walk('app'))[1]
+dl = next(os.walk('app/resources'))[1]
 
 for i in dl:
-	temp_controller = 'app.' + i + '.controller'
+	temp_controller = 'app.resources.' + i + '.controller'
 	temp_blueprint = 'app_' + i
 	temp_import = 'from ' + temp_controller + ' import ' + temp_blueprint
 	temp_blueprint_register = 'app.register_blueprint(' + temp_blueprint + ')'
