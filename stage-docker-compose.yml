@@ -1,0 +1,27 @@
+version: '2'
+services:
+  mysql:
+    image: mysql/mysql-server
+    environment:
+     - MYSQL_ROOT_PASSWORD=password
+     - MYSQL_DATABASE=flask
+     - MYSQL_ROOT_HOST=%
+    ports:
+      - "3306:3306"
+    volumes:
+      - my-datavolume:/var/lib/mysql
+  web:
+    depends_on:
+      - "mysql"
+    environment:
+      - DEBUG=1
+      - ENVIRONMENT=stage
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "80:5000"
+    volumes:
+     - .:/code
+volumes:
+  my-datavolume:

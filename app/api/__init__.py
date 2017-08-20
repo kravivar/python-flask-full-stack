@@ -12,8 +12,18 @@ api = Api(api_blueprint,
 	description='An API list for python stack',
 )
 
-# Import api_namespace
-from app.api.developer.controller import namespace_developer
+# Auto generate Route Definitions for api
+# Import a module / component using its blueprint handler variable (mod_auth)
+dl = next(os.walk('app/api'))[1]
 
-# Add namespace to blueprint
-api.add_namespace(namespace_developer)
+for i in dl:
+	temp_controller = 'app.api.' + i + '.controller'
+	temp_blueprint = 'namespace_' + i
+	temp_import = 'from ' + temp_controller + ' import ' + temp_blueprint
+	temp_blueprint_register = 'api.add_namespace(' + temp_blueprint + ')'
+
+	# Import controllers
+	exec(temp_import)
+
+	# regiser blueprint
+	exec(temp_blueprint_register)

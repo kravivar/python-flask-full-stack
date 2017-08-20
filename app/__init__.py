@@ -1,8 +1,24 @@
 from flask import Flask, jsonify, abort, request
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-app.config.from_object('config')
+
+# Configuration based on environment
+CONFIG_NAME_MAPPER = {
+    'development': 'config.DevelopmentConfig',
+    'stage': 'config.StageConfig',
+    'default': 'config.DevelopmentConfig',
+}
+
+flask_environment = os.getenv('FLASK_ENVIRONMENT');
+
+if flask_environment is not None:
+	app.config.from_object(CONFIG_NAME_MAPPER[flask_environment])
+else:
+	app.config.from_object(CONFIG_NAME_MAPPER['default'])
+
+
 db = SQLAlchemy(app)
 
 # Import api blueprint
