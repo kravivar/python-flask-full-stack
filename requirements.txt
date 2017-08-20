@@ -1,6 +1,6 @@
 flask
 Flask-SQLAlchemy
 pymysql
-flask-restful
+flask-restplus
 marshmallow-sqlalchemy
-flasgger
+flask-marshmallow

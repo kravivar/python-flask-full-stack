@@ -1,48 +1,20 @@
 # Importing Flask and dependencies
-from flask import jsonify, request, make_response
-from flask_restful import Resource, abort, reqparse
+from flask import Blueprint, jsonify, request, make_response
+from flask_restplus import Resource, abort
+from app.api import api
+import os
+
+# Import model and db
 from app import db
+from app.api.developer.model import Developer, DeveloperSchema, DeveloperRestSchema
 
-# Import model
-from app.resources.developer.model import Developer, DeveloperSchema
+# Defining namespace
+namespace_developer = api.namespace(os.path.basename(os.path.dirname(os.path.realpath(__file__))), 
+									description='Manage developers.')
 
+## Defining reoutes
+@namespace_developer.route('/')
 class DeveloperApi(Resource):
-	"""
-	This is the language awesomeness API
-	Call this api passing a language name and get back its features
-	---
-	tags:
-	  - Awesomeness Language API
-	parameters:
-	  - name: language
-	    in: path
-	    type: string
-	    required: true
-	    description: The language name
-	  - name: size
-	    in: query
-	    type: integer
-	    description: size of awesomeness
-	responses:
-	  500:
-	    description: Error The language is not awesome!
-	  200:
-	    description: A language with its awesomeness
-	    schema:
-	      id: awesome
-	      properties:
-	        language:
-	          type: string
-	          description: The language name
-	          default: Lua
-	        features:
-	          type: array
-	          description: The awesomeness list
-	          items:
-	            type: string
-	          default: ["perfect", "simple", "lovely"]
-
-	"""
 	def get(self):
 		id = None
 		if not request.args:
@@ -53,7 +25,7 @@ class DeveloperApi(Resource):
 
 		developer_schema = DeveloperSchema(many=True)
 		retval = developer_schema.dump(developer_data).data
-		return jsonify({'retval':retval,'args':request.args})
+		return jsonify(retval)
 
 	def post(self):
 		json_data = request.json

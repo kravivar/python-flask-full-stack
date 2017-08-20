@@ -1,6 +1,12 @@
+# Defining Developer model for table
+
 from app import db
+from app.api import api
 import datetime
-from marshmallow_sqlalchemy import ModelSchema
+from flask_restplus import fields
+from flask_marshmallow import Marshmallow
+
+ma = Marshmallow()
 
 # Base Schema for sqlAlchemy
 class Base(db.Model):
@@ -24,6 +30,16 @@ class Developer(Base):
 		self.focus = focus
 
 # Model Class for marshmallows
-class DeveloperSchema(ModelSchema):
+class DeveloperSchema(ma.ModelSchema):
 	class Meta:
 		model = Developer
+
+# Model for restplus
+DeveloperRestSchema=api.model('Developer',{
+	'id': fields.Integer(),
+	'date_created': fields.Date(),
+	'data_modified': fields.Date(),
+	'name': fields.String(),
+	'hireDate': fields.Date(),
+	'focus': fields.String(),
+})
