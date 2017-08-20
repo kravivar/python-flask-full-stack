@@ -21,12 +21,10 @@ class Base(db.Model):
 class Developer(Base):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(20))
-	hireDate = db.Column(db.DateTime,  default=db.func.current_timestamp())
 	focus = db.Column(db.String(50))
 
 	def __init__(self, name, hireDate, focus):
 		self.name = name
-		self.hireDate = datetime.datetime.strptime(hireDate, '%Y-%m-%d').date()
 		self.focus = focus
 
 # Model Class for marshmallows
@@ -36,10 +34,6 @@ class DeveloperSchema(ma.ModelSchema):
 
 # Model for restplus
 DeveloperRestSchema=api.model('Developer',{
-	'id': fields.Integer(),
-	'date_created': fields.Date(),
-	'data_modified': fields.Date(),
 	'name': fields.String(),
-	'hireDate': fields.Date(),
 	'focus': fields.String(),
 })
