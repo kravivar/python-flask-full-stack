@@ -23,9 +23,11 @@ db = SQLAlchemy(app)
 
 # Import api blueprint
 from app.api import api_blueprint
+from app.ui.home.controller import home_blueprint
 
 # register 
 app.register_blueprint(api_blueprint)
+app.register_blueprint(home_blueprint)
 
 # Create corresponding tables
 db.create_all()
