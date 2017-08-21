@@ -18,7 +18,6 @@ if flask_environment is not None:
 else:
 	app.config.from_object(CONFIG_NAME_MAPPER['default'])
 
-
 db = SQLAlchemy(app)
 
 # Import api blueprint
