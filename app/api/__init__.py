@@ -7,7 +7,7 @@ api_blueprint = Blueprint('api', __name__, url_prefix='/api')
 
 # Define restful api for blueprint
 api = Api(api_blueprint,
-	title='python flask full stack',
+	title='<a href="/">python flask full stack</a>',
 	version='1.0',
 	description='An API list for python stack',
 )

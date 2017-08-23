@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+<head>
+    <title>{% block title %}{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head>
-  <title>Flaskr</title>
-  <body>
-    <div>
-      {% block body %}{% endblock %}
-    </div>
-  </body>
+    <!-- CDN loading -->  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" /></script>
+
+    <!-- Load from local server -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="/static/css/signup.css" rel="stylesheet">
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/signup.js"></script>
+    <script type="text/javascript" src="/static/js/chart.js"></script> 
+    <script type="text/javascript" src="/static/js/search.js"></script>
+</head>
+ 
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Python Flask Full stack</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li role="presentation"><a href="/">Home</a>
+                    </li>
+                    <li role="presentation"><a href="/user/showSignUp">Sign Up</a>
+                    </li> 
+                    <li role="presentation"><a href="/api/" target="_blank">API</a>
+                    </li>                                  
+                </ul>                
+            </div>
+        </div>  
+    </nav>
+        {% block content %}{% endblock %}
+</body>
 </html>
