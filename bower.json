@@ -1,0 +1,23 @@
+{
+  "name": "python-flask-full-stack",
+  "description": "python flask full stack",
+  "main": "",
+  "keywords": [
+    "python",
+    "flask",
+    "stack"
+  ],
+  "authors": [
+    "Kripakaran Ravivarman"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
