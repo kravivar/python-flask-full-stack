@@ -28,6 +28,7 @@ class BaseConfig():
 	}
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 	JSONIFY_PRETTYPRINT_REGULAR = False
+	FLASK_STATIC = 'app/static/'
 
 
 class DevelopmentConfig(BaseConfig):
