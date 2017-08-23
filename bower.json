@@ -11,13 +11,17 @@
     "Kripakaran Ravivarman"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/kravivar/python-flask-full-stack",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
-  ]
+    "tests",
+    "app/static/bower_components/"
+  ],
+  "dependencies": {
+    "gentelella": "^1.4.0"
+  }
 }
