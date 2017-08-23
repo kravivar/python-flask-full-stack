@@ -4,3 +4,4 @@ pymysql
 flask-restplus
 marshmallow-sqlalchemy
 flask-marshmallow
+uwsgi
