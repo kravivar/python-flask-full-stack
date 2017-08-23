@@ -8,5 +8,8 @@ Full stack python example
 * DELETE - `curl -X DELETE http://localhost/api/dev/?id=15`
 
 # References
+### API
 * http://www.bradcypert.com/writing-a-restful-api-in-flask-sqlalchemy/
+### UI
+* https://github.com/puikinsh/gentelella
 
