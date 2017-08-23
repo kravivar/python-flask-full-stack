@@ -18,7 +18,7 @@ dl = next(os.walk('app/api'))[1]
 
 for i in dl:
 	temp_controller = 'app.api.' + i + '.controller'
-	temp_blueprint = 'namespace_' + i
+	temp_blueprint = i + '_namespace'
 	temp_import = 'from ' + temp_controller + ' import ' + temp_blueprint
 	temp_blueprint_register = 'api.add_namespace(' + temp_blueprint + ')'
 

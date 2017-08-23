@@ -9,11 +9,11 @@ from app import db
 from app.api.developer.model import Developer, DeveloperSchema, DeveloperRestSchema
 
 # Defining namespace
-namespace_developer = api.namespace(os.path.basename(os.path.dirname(os.path.realpath(__file__))), 
+developer_namespace = api.namespace(os.path.basename(os.path.dirname(os.path.realpath(__file__))), 
 									description='Manage developers.')
 
 ## Defining reoutes
-@namespace_developer.route('/<int:id>')
+@developer_namespace.route('/<int:id>')
 class DeveloperApiOne(Resource):
 	def get(self, id):
 		if id is None:
@@ -48,7 +48,7 @@ class DeveloperApiOne(Resource):
 		db.session.commit()
 		return jsonify( { 'result': True } )
 
-@namespace_developer.route('/')
+@developer_namespace.route('/')
 class DeveloperApi(Resource):
 	def get(self):
 		id = None
