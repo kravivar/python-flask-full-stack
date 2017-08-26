@@ -3,9 +3,6 @@
 # Install pre-requesities 
 rm -rf /code/app/static/vendors
 cd /code && bower install --allow-root
-mv /code/app/static/bower_components/gentelella/vendors /code/app/static/
-mv /code/app/static/bower_components/gentelella/build /code/app/static/
-rm -rf /code/app/static/bower_components
 
 if [[ "$FLASK_ENVIRONMENT" == "stage" ]]
 then
