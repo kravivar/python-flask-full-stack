@@ -101,5 +101,4 @@ ENV/
 .mypy_cache/
 
 # Ignore bower files
-app/static/vendors/
-app/static/build/
+app/static/bower_components/
