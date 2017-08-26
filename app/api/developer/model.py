@@ -23,7 +23,7 @@ class Developer(Base):
 	name = db.Column(db.String(20))
 	focus = db.Column(db.String(50))
 
-	def __init__(self, name, hireDate, focus):
+	def __init__(self, name, focus):
 		self.name = name
 		self.focus = focus
 
