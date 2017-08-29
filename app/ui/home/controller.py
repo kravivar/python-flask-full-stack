@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, jsonify
 from app import app
 
 # Define api blueprint
-home_blueprint = Blueprint('home_blueprint', __name__, url_prefix='/')
+home_blueprint = Blueprint('home_blueprint', __name__)
 
 @home_blueprint.route("/static/<filename>")
 def index():
