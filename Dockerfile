@@ -1,4 +1,4 @@
-FROM python:2.7-alpine
+FROM python:3-alpine
 RUN apk update
 RUN apk add mysql-client git wget bash gcc musl-dev linux-headers nodejs git yarn
 ADD . /code
