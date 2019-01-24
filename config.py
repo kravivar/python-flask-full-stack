@@ -23,9 +23,14 @@ class BaseConfig():
 	# Secret key for signing cookies
 	SECRET_KEY = "secret"
 
-	ENABLED_MODULES = {
-		'developer'
+	ENABLED_API_MODULES = {
+		'developer' : True
 	}
+
+	ENABLED_UI_MODULES = {
+		'home' : True
+	}
+
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 	JSONIFY_PRETTYPRINT_REGULAR = False
 	FLASK_STATIC = 'app/static/'
