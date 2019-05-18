@@ -102,3 +102,4 @@ ENV/
 
 # Ignore bower files
 app/static/bower_components/
+yarn.lock
