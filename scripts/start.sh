@@ -2,7 +2,8 @@
 
 # Install pre-requesities 
 rm -rf /code/app/static/vendors
-cd /code && bower install --allow-root
+# cd /code && bower install --allow-root
+cd /code && yarn install --modules-folder ./app/static/bower_components
 
 if [[ "$FLASK_ENVIRONMENT" == "stage" ]]
 then
