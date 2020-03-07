@@ -3,7 +3,7 @@
 from app import db
 from app.api import api
 import datetime
-from flask_restplus import fields
+from flask_restx import fields
 from flask_marshmallow import Marshmallow
 
 ma = Marshmallow()

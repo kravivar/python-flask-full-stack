@@ -1,6 +1,6 @@
 # Importing Flask and dependencies
 from flask import Blueprint, jsonify, request, make_response
-from flask_restplus import Resource, abort
+from flask_restx import Resource, abort
 from app.api import api
 import os
 
@@ -20,7 +20,7 @@ class DeveloperApiOne(Resource):
 			abort(400)
 		developer_data = Developer.query.get(id)
 		developer_schema = DeveloperSchema()
-		retval = developer_schema.dump(developer_data).data
+		retval = developer_schema.dump(developer_data)
 		return jsonify(retval)
 
 	@api.expect(DeveloperRestSchema)
@@ -59,7 +59,7 @@ class DeveloperApi(Resource):
 			developer_data = Developer.query.filter_by(**kwargs)
 
 		developer_schema = DeveloperSchema(many=True)
-		retval = developer_schema.dump(developer_data).data
+		retval = developer_schema.dump(developer_data)
 		return jsonify(retval)
 
 	@api.expect(DeveloperRestSchema)

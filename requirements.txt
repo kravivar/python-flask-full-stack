@@ -1,7 +1,8 @@
 flask
 Flask-SQLAlchemy
 pymysql
-flask-restplus
+flask-restx
 marshmallow-sqlalchemy
 flask-marshmallow
 uwsgi
+Werkzeug==0.16.1
