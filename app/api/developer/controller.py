@@ -21,6 +21,10 @@ class DeveloperApiOne(Resource):
 		developer_data = Developer.query.get(id)
 		developer_schema = DeveloperSchema()
 		retval = developer_schema.dump(developer_data)
+
+		if not retval:
+			abort(404, 'The requested data with id: %d does not exist.'%(id))
+
 		return jsonify(retval)
 
 	@api.expect(DeveloperRestSchema)
@@ -32,7 +36,13 @@ class DeveloperApiOne(Resource):
 			abort(400)
 
 		input_data = request.json
+
+		developer_schema = DeveloperSchema()
 		developer_data = Developer.query.get(id)
+		put_check_val = developer_schema.dump(developer_data)
+
+		if not put_check_val:
+			abort(404, 'The requested data with id: %d does not exist.'%(id))		
 
 		for i in input_data:
 			eval_update = 'developer_data.' + i + ' = input_data["' + i + '"]'
@@ -42,8 +52,16 @@ class DeveloperApiOne(Resource):
 		return jsonify( { 'result': True } )
 
 	def delete(self, id):
-		if id is None:
-			abort(400)		
+		if (id is None):
+			abort(400)
+
+		developer_schema = DeveloperSchema()
+		developer_data = Developer.query.get(id)
+		delete_check_val = developer_schema.dump(Developer.query.get(id))
+
+		if not delete_check_val:
+			abort(404, 'The requested data with id: %d does not exist.'%(id))
+
 		db.session.delete(Developer.query.get(id))
 		db.session.commit()
 		return jsonify( { 'result': True } )

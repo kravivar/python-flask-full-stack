@@ -28,7 +28,7 @@ class Developer(Base):
 		self.focus = focus
 
 # Model Class for marshmallows
-class DeveloperSchema(ma.ModelSchema):
+class DeveloperSchema(ma.SQLAlchemyAutoSchema):
 	class Meta:
 		model = Developer
 
