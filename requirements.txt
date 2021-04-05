@@ -6,3 +6,4 @@ marshmallow-sqlalchemy
 flask-marshmallow
 uwsgi
 Werkzeug==0.16.1
+cryptography
