@@ -16,6 +16,7 @@ services:
     environment:
       - DEBUG=1
       - ENVIRONMENT=stage
+      - FLASK_ENVIRONMENT=stage
     build:
       context: .
       dockerfile: Dockerfile
