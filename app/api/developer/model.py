@@ -32,6 +32,12 @@ class DeveloperSchema(ma.SQLAlchemyAutoSchema):
 	class Meta:
 		model = Developer
 
+class DeveloperReturnSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Developer
+        # Exclude date_created because we're aliasing it below
+        exclude = ("name", "focus")		
+
 # Model for restplus
 DeveloperRestSchema=api.model('Developer',{
 	'name': fields.String(),
