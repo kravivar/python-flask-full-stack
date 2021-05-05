@@ -6,7 +6,7 @@ import os
 
 # Import model and db
 from app import db
-from app.api.developer.model import Developer, DeveloperSchema, DeveloperRestSchema
+from app.api.developer.model import Developer, DeveloperSchema, DeveloperRestSchema, DeveloperReturnSchema
 
 # Defining namespace
 developer_namespace = api.namespace(os.path.basename(os.path.dirname(os.path.realpath(__file__))), 
@@ -90,6 +90,6 @@ class DeveloperApi(Resource):
 		db.session.add(developer_data)
 		db.session.commit()
 
-		developer_schema = DeveloperSchema()
+		developer_schema = DeveloperReturnSchema()
 		retval = developer_schema.dump(developer_data)
 		return make_response(jsonify(retval), 201)
