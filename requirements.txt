@@ -5,5 +5,5 @@ flask-restx
 marshmallow-sqlalchemy
 flask-marshmallow
 uwsgi
-Werkzeug==0.16.1
+Werkzeug==2.2.3
 cryptography
